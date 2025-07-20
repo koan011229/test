@@ -19,7 +19,7 @@ def transcribe_youtube(url: str, out_dir: str = "downloads", model_size: str = "
     result = model.transcribe(filename)
 
     # 4. 텍스트 결과 반환
-    return result
+    return result["text"]
 
 
 #video_url = "https://www.youtube.com/watch?v=Wn8X5JMgBAk"  # 원하는 유튜브 링크

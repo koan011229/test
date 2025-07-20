@@ -14,7 +14,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# 요청 모델
+class YoutubeRequest(BaseModel):
+    url: str
+
 @app.post("/transcribe")
-def transcribe(url: str):
-    text = transcribe_youtube(url)
+def transcribe(request: YoutubeRequest):
+    text = transcribe_youtube(request.url)
     return {"text": text}
